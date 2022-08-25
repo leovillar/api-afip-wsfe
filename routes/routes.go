@@ -14,10 +14,5 @@ func APIRoutes(app *fiber.App) {
 	v1.Get("/dashboard", monitor.New())
 	v1.Get("/healthcheck", controllers.Healthcheck)
 	v1.Get("/FEDummy", controllers.FEDummy)
-	v1.Post("/LoginCMS", controllers.LoginCMS)
-	v1.Post("/FECompUltimoAutorizado", controllers.FECompUltimoAutorizado)
-	v1.Post("/FECAESolicitar", controllers.FECAESolicitar)
-	v1.Get("/FEParamGetPtosVenta", controllers.FEParamGetPtosVenta)
-	v1.Post("/FECompConsultar", controllers.FECompConsultar)
 
 }
