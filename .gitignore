@@ -1,7 +1,4 @@
 .idea/
 .env
 docker-compose.yml
-leo.crt
-leo.csr
-leo.key
-leo.pem
+leo.*
