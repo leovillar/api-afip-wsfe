@@ -1,0 +1,25 @@
+version: '3'
+services:
+  api-afip-wsfe:
+    image: ${IMAGE_NAME}:${IMAGE_TAG_NAME}
+    container_name: ${CONTAINER_NAME}
+    build: .
+    environment:
+      API_PORT: ${API_PORT}
+      WSAA_HOMO_WSDL: ${WSAA_HOMO_WSDL}
+      WSFE_HOMO_WSDL: ${WSFE_HOMO_WSDL}
+      WSAA_WSDL: ${WSAA_WSDL}
+      WSFE_WSDL: ${WSFE_WSDL}
+      CUIT: ${CUIT}
+      CA_PRIVATE_KEY: ${CA_PRIVATE_KEY}
+      CA_CERT_PEM: ${CA_CERT_PEM}
+      HTTP_TIME_OUT: ${HTTP_TIME_OUT}
+      PATH_WORK: ${PATH_WORK}
+      MODE: ${MODE}
+    restart: always
+    volumes:
+      - ${PATH_WORK}:${PATH_WORK}
+      - /etc/localtime:/etc/localtime:ro  # Para syncronizar el clock del contenedor con el del host
+      - /etc/timezone:/etc/timezone:ro    # Para syncronizar el clock del contenedor con el del host
+    ports:
+      - ${API_PORT}:${API_PORT}
